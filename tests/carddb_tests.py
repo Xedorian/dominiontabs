@@ -22,40 +22,41 @@ def rmtestcardb(request):
 
 
 def test_cardread():
-    num_cards_expected = 647
+    num_cards_expected = 725
 
     options = main.parse_opts([])
     options.data_path = "."
     cards = main.read_card_data(options)
     assert len(cards) == num_cards_expected
     valid_cardsets = {
-        u"base",
-        u"dominion1stEdition",
-        u"dominion2ndEdition",
-        u"dominion2ndEditionUpgrade",
-        u"intrigue1stEdition",
-        u"intrigue2ndEdition",
-        u"intrigue2ndEditionUpgrade",
-        u"seaside",
-        u"alchemy",
-        u"prosperity",
-        u"cornucopia extras",
-        u"cornucopia",
-        u"hinterlands",
-        u"dark ages",
-        u"dark ages extras",
-        u"guilds",
-        u"adventures",
-        u"adventures extras",
-        u"empires",
-        u"empires extras",
-        u"nocturne",
-        u"nocturne extras",
-        u"promo",
-        u"renaissance",
-        u"menagerie",
-        u"extras",
-        u"animals",
+        "base",
+        "dominion1stEdition",
+        "dominion2ndEdition",
+        "dominion2ndEditionUpgrade",
+        "intrigue1stEdition",
+        "intrigue2ndEdition",
+        "intrigue2ndEditionUpgrade",
+        "seaside",
+        "alchemy",
+        "prosperity",
+        "cornucopia extras",
+        "cornucopia",
+        "hinterlands",
+        "dark ages",
+        "dark ages extras",
+        "guilds",
+        "adventures",
+        "adventures extras",
+        "empires",
+        "empires extras",
+        "nocturne",
+        "nocturne extras",
+        "promo",
+        "renaissance",
+        "menagerie",
+        "extras",
+        "animals",
+        "allies",
     }
     for c in cards:
         assert isinstance(c, domdiv_cards.Card)
@@ -127,6 +128,7 @@ def test_only_type():
     #      Blank:         +5 added in options
     #      Curse:         +1 from base
     #      Action Attack: +2 from Alchemy
+    print(cards)
     assert len(cards) == 8
 
 

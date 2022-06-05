@@ -29,7 +29,7 @@ TAB_SIDE_CHOICES = [
     "full",
 ]
 TEXT_CHOICES = ["card", "rules", "blank"]
-LINE_CHOICES = ["line", "dot", "cropmarks", "dot-cropmarks"]
+LINE_CHOICES = ["line", "dot", "cropmarks", "line-cropmarks", "dot-cropmarks"]
 
 EDITION_CHOICES = ["1", "2", "latest", "all"]
 
@@ -358,6 +358,13 @@ def parse_opts(cmdline_args=None):
         dest="use_set_icon",
         help="Use set icon instead of a card icon.  Applies to Promo cards.",
     )
+    group_tab.add_argument(
+        "--expansion-reset-tabs",
+        action="store_true",
+        dest="expansion_reset_tabs",
+        help="When set, the tabs are restarted (left/right) at the beginning of each expansion. "
+        "If not set, the tab pattern will continue from one expansion to the next. ",
+    )
 
     # Expanion Dividers
     group_expansion = parser.add_argument_group(
@@ -381,13 +388,6 @@ def parse_opts(cmdline_args=None):
         action="store_true",
         dest="full_expansion_dividers",
         help="Full width expansion dividers.",
-    )
-    group_expansion.add_argument(
-        "--expansion-reset-tabs",
-        action="store_true",
-        dest="expansion_reset_tabs",
-        help="When set, the tabs are restarted (left/right) at the beginning of each expansion. "
-        "If not set, the tab pattern will continue from one expansion to the next. ",
     )
     group_expansion.add_argument(
         "--expansion-dividers-long-name",
@@ -727,6 +727,7 @@ def parse_opts(cmdline_args=None):
         "'line' will print a solid line outlining the divider; "
         "'dot' will print a dot at each corner of the divider; "
         "'cropmarks' will print cropmarks for the divider; "
+        "'line-cropmarks' will combine 'line' and 'cropmarks'; "
         "'dot-cropmarks' will combine 'dot' and 'cropmarks'",
     )
     group_printing.add_argument(
@@ -788,12 +789,6 @@ def parse_opts(cmdline_args=None):
         "--cardlist",
         dest="cardlist",
         help="Path to file that enumerates each card to be printed on its own line.",
-    )
-    group_special.add_argument(
-        "--write-json",
-        action="store_true",
-        dest="write_json",
-        help="Write json version of card definitions and extras.",
     )
     group_special.add_argument(
         "-c",
@@ -881,11 +876,7 @@ def clean_opts(options):
     if options.cropmarks and options.linetype == "line":
         options.linetype = "cropmarks"
 
-    if options.linetype == "cropmarks":
-        options.cropmarks = True
-
-    if options.linetype == "dot-cropmarks":
-        options.linetype = "dot"
+    if "cropmarks" in options.linetype:
         options.cropmarks = True
 
     if options.expansions is None:
@@ -1500,10 +1491,12 @@ def filter_sort_cards(cards, options):
 
     # Combine upgrade cards with their expansion
     if options.upgrade_with_expansion:
+        if options.exclude_expansions is None:
+            options.exclude_expansions = []
         for card in cards:
             if Card.sets[card.cardset_tag]["upgrades"]:
+                options.exclude_expansions.append(card.cardset_tag.lower())
                 card.cardset_tag = Card.sets[card.cardset_tag]["upgrades"]
-                options.expansions.append(card.cardset_tag.lower())
 
     # Combine globally all cards of the given types
     # For example, Events, Landmarks, Projects, Ways
