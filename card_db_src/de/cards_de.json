@@ -2117,7 +2117,7 @@
     },
     "Investment": {
         "description": "Entsorge eine deiner Handkarten.<n>Wähle eins: +1 Coin oder entsorge diese Karte, um deine Handkarten aufzudecken für +1<VP> pro Geldkarte unterschiedlichen Namens darunter.",
-        "extra": "Du musst eine Karte entsorgen. Es ist okay, wenn "Geldanlage" deine letzte Karte auf der Hand war, du entsorgst dann einfach keine Karte. Dann wählst du entweder +1 Coin aus oder du entsorgst die Geldanlage. Wenn du sie entsorgst, deckst du deine Hand auf und erhältst +1<VP> für jede Geldkarte unterschiedlichen Namens; wenn du zum Beispiel zwei Kupfer und ein Silber aufdeckst, erhältst du +2<VP>. Du kannst die aufgedeckten Geldkarten immer noch spielen, nachdem du Geldanlage abgehandelt hast. Wenn du dieselbe Geldanlage zweimal spielst (z.B. mit einer Krone) und sie beim ersten Mal für <VP> entsorgst, kannst du sie beim zweiten Mal nicht mehr für <VP> entsorgen.",
+        "extra": "Du musst eine Karte entsorgen. Es ist okay, wenn 'Geldanlage' deine letzte Karte auf der Hand war, du entsorgst dann einfach keine Karte. Dann wählst du entweder +1 Coin aus oder du entsorgst die Geldanlage. Wenn du sie entsorgst, deckst du deine Hand auf und erhältst +1<VP> für jede Geldkarte unterschiedlichen Namens; wenn du zum Beispiel zwei Kupfer und ein Silber aufdeckst, erhältst du +2<VP>. Du kannst die aufgedeckten Geldkarten immer noch spielen, nachdem du Geldanlage abgehandelt hast. Wenn du dieselbe Geldanlage zweimal spielst (z.B. mit einer Krone) und sie beim ersten Mal für <VP> entsorgst, kannst du sie beim zweiten Mal nicht mehr für <VP> entsorgen.",
         "name": "Geldanlage"
     },
     "Tiara": {
