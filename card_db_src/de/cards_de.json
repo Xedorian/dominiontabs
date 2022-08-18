@@ -2105,7 +2105,7 @@
         "extra": "Diese Karte ist eine Geldkarte mit zusätzlichen Anweisungen. Sie hat den Wert 1 Coin. Sobald du diese Karte ausspielst (normalerweise in der Kaufphase), deckst du solange Karten vom Nachziehstapel auf, bis du die erste Geldkarte (auch kombinierte) aufdeckst. Ist der Nachziehstapel aufgebraucht, ohne eine Geldkarte zu finden, mischst du deinen Ablagestapel. Findest du auch dort keine Geldkarte, legst du alle aufgedeckten Karten ab. Spiele die erste aufgedeckte Geldkarte sofort aus und führe ggf. zusätzliche Anweisungen auf dieser Karte aus. Lege alle anderen aufgedeckten Karten ab.",
         "name": "Abenteuer"
     },
-	"Anvil": {
+	  "Anvil": {
         "description": "1 <*COIN*><n><n>Du darfst eine Geldkarte ablegen, um eine Karte zunehmen, die bis zu 4 Coin kostet.",
         "extra": "Das Ablegen einer Geldkarte ist optional. Wenn du eine Geldkarte ablegst, nimmst du eine Karte mit einem Wert von bis zu 4 Coin aus dem Vorrat und legst diese auf deinen Ablagestapel.",
         "name": "Amboss"
