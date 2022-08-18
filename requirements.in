@@ -6,3 +6,4 @@ pytest
 # installs platform-specific packages
 cloudpickle
 configargparse
+flake8<4 # Problem with pytest as shown here: https://github.com/tholo/pytest-flake8/issues/81
